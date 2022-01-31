@@ -1,0 +1,163 @@
+html {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 50px;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.72rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 0.4rem;
+}
+
+a {
+    color: darkcyan;
+}
+
+.about {
+    position: absolute;
+    font-size: 36px;
+    top: 3px;
+    right: 6px;
+}
+
+.about a {
+    text-decoration: none;
+}
+
+.gameBoard, .keyBoard, .shareSheet {
+    width: 6rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.cell {
+    display: inline-block;
+    height: 1.08rem;
+    line-height: 1.08rem;
+    aspect-ratio: 1;
+    border: solid 0.04rem lightgray;
+    margin: 0.02rem;
+    color: black;
+    background-color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.no_match {
+    color: white;
+    background-color: darkgray;
+    border-color: darkgray;
+}
+
+.full_match {
+    color: white;
+    background-color: darkgreen;
+    border-color: darkgreen;
+}
+
+b.full_match {
+    color: darkgreen;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.partial_match {
+    color: white;
+    background-color: darkkhaki;
+    border-color: darkkhaki;
+}
+
+b.partial_match {
+    color: darkkhaki;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+@keyframes prime {
+    0%    { background-color: darkgray;     border-color: darkgray; }
+    95%   { background-color: darkgray;     border-color: darkgray; }
+    95.5% { background-color: red;          border-color: red; }
+    96%   { background-color: orange;       border-color: orange; }
+    96.5% { background-color: yellow;       border-color: yellow; }
+    97%   { background-color: lawngreen;    border-color: lawngreen; }
+    97.5% { background-color: turquoise;    border-color: turquoise; }
+    98.5% { background-color: deepskyblue;  border-color: deepskyblue; }
+    99%   { background-color: mediumpurple; border-color: mediumpurple; }
+    100%  { background-color: darkgray;     border-color: darkgray; }
+}
+
+.prime {
+    color: white;
+    background-color: darkgray;
+    border-color: darkgray;
+    animation: prime 10s infinite;
+}
+
+.prime:nth-of-type(1) {
+    animation-delay: 0s;
+}
+
+.prime:nth-of-type(2) {
+    animation-delay: 0.02s;
+}
+
+.prime:nth-of-type(3) {
+    animation-delay: 0.04s;
+}
+
+.prime:nth-of-type(4) {
+    animation-delay: 0.06s;
+}
+
+.prime:nth-of-type(5) {
+    animation-delay: 0.08s;
+}
+
+.key {
+    font-size: 0.88rem;
+    display: inline-block;
+    height: 1rem;
+    aspect-ratio: 1.8;
+    border-radius: 0.2rem;
+    margin: 0.1rem;
+    color: black;
+    background-color: lightgray;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.key.backspace {
+    font-size: 0.8rem;
+}
+
+.key.share {
+    color: white;
+    background-color: darkgreen;
+    aspect-ratio: 6;
+}
+
+.hidden {
+    display: none;
+}

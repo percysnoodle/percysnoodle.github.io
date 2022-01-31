@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Primle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="primle.css">
+</head>
+<body>
+<h1>Primle</h1>
+<p><b>Primle</b> is a number game inspired by the word game <b>Wordle</b>.</p>
+<p>In <b>Primle</b>, you try to find a five-digit number (10,000 - 99,999) which is the product of five distinct
+    <a href="https://en.wikipedia.org/wiki/Prime_number">prime numbers</a> between 2 and 23 (inclusive).
+    The target number changes every day.</p>
+<p>Each turn, you will enter a five-digit number.  Unlike Wordle, the game won't tell you if the digits
+    match the target number.  Instead, it will tell you whether the number you've entered shares
+    <a href="https://en.wikipedia.org/wiki/Prime_factor">prime factors</a> with the target number.</p>
+<p>Like Wordle, it will add colour to the digits of your guess.  If it colours the first digit, that means that your
+    guess divides by the target number's smallest prime factor.  If it colours the second digit, it means that your
+    guess divides by its second smallest factor, and so on.</p>
+<p>If the game colours a digit <b class="full_match">green</b>, that means that the two numbers divide by that
+    prime factor to the same power. If it colours the digit <b class="partial_match">yellow</b>, then they divide
+    by that prime factor to different powers.</p>
+<p>For example, suppose your first guess is:</p>
+<div class="gameBoard">
+    <div class="row">
+        <span class="cell">1</span>
+        <span class="cell">1</span>
+        <span class="cell">7</span>
+        <span class="cell">7</span>
+        <span class="cell">6</span>
+    </div>
+</div>
+<p>The game may respond with:</p>
+<div class="gameBoard">
+    <div class="row">
+        <span class="cell partial_match">1</span>
+        <span class="cell no_match">1</span>
+        <span class="cell no_match">7</span>
+        <span class="cell no_match">7</span>
+        <span class="cell full_match">6</span>
+    </div>
+</div>
+<p>This tells us that our target number's smallest prime factor and its largest prime factor are both factors of 11,776; and that it divides by the largest factor to the same power as 11,776.</p>
+<p>11,776 = 2<sup>9</sup> &times; 23, so we know that it divides by some power of 2 and that it divides by 23 exactly once.</p>
+<p>Our next guess might be:</p>
+<div class="gameBoard">
+    <div class="row">
+        <span class="cell">4</span>
+        <span class="cell">1</span>
+        <span class="cell">5</span>
+        <span class="cell">5</span>
+        <span class="cell">3</span>
+    </div>
+</div>
+<p>The game may respond with:</p>
+<div class="gameBoard">
+    <div class="row">
+        <span class="cell no_match">4</span>
+        <span class="cell partial_match">1</span>
+        <span class="cell no_match">5</span>
+        <span class="cell no_match">5</span>
+        <span class="cell no_match">3</span>
+    </div>
+</div>
+<p>41,553 = 3<sup>7</sup> &times; 19.  So we now know that the target number divides by either 3 or 19, and that whichever it divides by is its second factor in size order.  Since the game only includes primes up to 23, it can't be 19, so the target number must divide by some power of 3.</p>
+<p>Next, we might try:</p>
+<div class="gameBoard">
+    <div class="row">
+        <span class="cell">5</span>
+        <span class="cell">3</span>
+        <span class="cell">1</span>
+        <span class="cell">2</span>
+        <span class="cell">5</span>
+    </div>
+</div>
+<p>...and get the response:</p>
+<div class="gameBoard">
+    <div class="row">
+        <span class="cell no_match">5</span>
+        <span class="cell no_match">3</span>
+        <span class="cell partial_match">1</span>
+        <span class="cell full_match">2</span>
+        <span class="cell no_match">5</span>
+    </div>
+</div>
+<p>...which tells us that the number divides by some power of 5, and by 17 exactly once, and that these are their third and fourth factors in size order.  So, next we try:</p>
+<div class="gameBoard">
+    <div class="row">
+        <span class="cell">1</span>
+        <span class="cell">1</span>
+        <span class="cell">7</span>
+        <span class="cell">3</span>
+        <span class="cell">0</span>
+    </div>
+</div>
+<p>...and get the response:</p>
+<div class="gameBoard">
+    <div class="row">
+        <span class="cell partial_match">1</span>
+        <span class="cell full_match">1</span>
+        <span class="cell full_match">7</span>
+        <span class="cell full_match">3</span>
+        <span class="cell full_match">0</span>
+    </div>
+</div>
+<p>...so now we know our answer up to a power of 2.  From here it is an easy sequence of guesses until we find the target number:</p>
+<div class="gameBoard">
+    <div class="row">
+        <span class="cell full_match">9</span>
+        <span class="cell full_match">3</span>
+        <span class="cell full_match">8</span>
+        <span class="cell full_match">4</span>
+        <span class="cell full_match">0</span>
+    </div>
+</div>
+<p>Now, <a href="index.html">try it for yourself!</a></p>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Primle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="primle.css">
+    <script type="module">
+        if (location.protocol !== 'https:') {
+            location.replace(`https:${location.href.substring(location.protocol.length)}`);
+        }
+
+        import { Application } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
+        window.Stimulus = Application.start()
+
+        import { PrimleController } from "./primle_controller.js"
+        Stimulus.register("primle", PrimleController);
+    </script>
+</head>
+<body data-controller="primle" data-action="keypress->primle#keyPressed keyup->primle#keyUp">
+    <h1>Primle</h1>
+
+    <div class="about"><a href="about.html" title="What is Primle?">ⓘ</a></div>
+
+    <div class="gameBoard" data-primle-target="gameBoard">
+        Loading...
+    </div>
+
+    <div class="keyBoard" data-primle-target="keyBoard">
+        <div class="row">
+            <span class="key" data-action="click->primle#digitPressed">7</span>
+            <span class="key" data-action="click->primle#digitPressed">8</span>
+            <span class="key" data-action="click->primle#digitPressed">9</span>
+        </div>
+        <div class="row">
+            <span class="key" data-action="click->primle#digitPressed">4</span>
+            <span class="key" data-action="click->primle#digitPressed">5</span>
+            <span class="key" data-action="click->primle#digitPressed">6</span>
+        </div>
+        <div class="row">
+            <span class="key" data-action="click->primle#digitPressed">1</span>
+            <span class="key" data-action="click->primle#digitPressed">2</span>
+            <span class="key" data-action="click->primle#digitPressed">3</span>
+        </div>
+        <div class="row">
+            <span class="key enter" data-action="click->primle#enterPressed" title="enter">↵</span>
+            <span class="key" data-action="click->primle#digitPressed">0</span>
+            <span class="key backspace" data-action="click->primle#backspacePressed" title="backspace">⌫</span>
+        </div>
+    </div>
+
+    <div class="shareSheet hidden" data-primle-target="shareSheet">
+        <h2>Correct!</h2>
+        <div class="row">
+            <span class="key share" data-action="click->primle#sharePressed">Share</span>
+        </div>
+    </div>
+</body>
+</html>
